@@ -1,0 +1,9 @@
+<p>
+    {{fromParent}}
+</p>
+
+<p *ngIf='hotelName'>
+    HotelName :{{hotelName}}, Rating:{{rating}}
+</p>
+
+<button (click)='sendReview()'>Review</button>

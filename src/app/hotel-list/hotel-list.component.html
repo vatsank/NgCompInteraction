@@ -1,0 +1,17 @@
+<!-- <app-reviews [fromParent]='toChild'></app-reviews> -->
+<!-- <app-reviews *ngFor='let eachHotel of hotelList' [hotelName]='eachHotel'></app-reviews> -->
+
+
+<input type="text" [(ngModel)]='hotelToReview' placeholder="enter the hotelname">
+
+<app-reviews [selectedHotel]='hotelToReview' (result)='onchange($event)'></app-reviews>
+
+{{rating}}
+
+<app-menu></app-menu>
+
+<ol style="text-align:left">
+    <li *ngFor='let eachItem of menuItems ' (click)='dynamicAdder(eachItem)'>
+        {{eachItem | uppercase}}
+    </li>
+</ol>
