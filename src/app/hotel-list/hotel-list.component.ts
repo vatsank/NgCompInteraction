@@ -8,11 +8,12 @@ import { CompadderService } from '../compadder.service';
   styleUrls: ['./hotel-list.component.css']
 })
 export class HotelListComponent implements OnInit , AfterContentInit {
-  align='left';
+  align = 'left';
   menuItems: string[];
   // Injecting the child component into parent
   @ViewChild(MenuComponent) menu: MenuComponent;
 
+  @ViewChild('dynamic', {read: ViewContainerRef}) containerRef: ViewContainerRef;
 
   rating: string;
   hotelToReview: string;
@@ -37,7 +38,12 @@ export class HotelListComponent implements OnInit , AfterContentInit {
   }
 
    dynamicAdder(type) {
-    this.adderService.setViewContainerRef(this.viewRef);
+     // Add as  child
+    // this.adderService.setViewContainerRef(this.viewRef);
+
+    // Add as a sibling 
+    this.adderService.setViewContainerRef(this.containerRef);
+
     this.adderService.addComponent(type);
    }
  

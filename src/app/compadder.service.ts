@@ -17,14 +17,16 @@ export class CompadderService {
     addComponent(type: string){
 
       this.viewRef.detach(0);
-
+         // this.viewRef.clear();
        if (type === 'pizza') {
       this.factory = 
         this.factResolver.resolveComponentFactory(PizzaComponent);
        } else {
         this.factory = this.factResolver.resolveComponentFactory(PastaComponent);
           }
-       this.viewRef.createComponent(this.factory);
+        this.viewRef.createComponent(this.factory);
+
+
 
     }
 }
